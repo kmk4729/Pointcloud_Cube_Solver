@@ -1,5 +1,7 @@
 # 3x3 Rubik’s Cube Solver Using Point Clouds
 
+2023.09 ~ 2023.12 Capstone Design Project
+
 이 프로젝트는 사진 촬영만으로 3x3 루빅스 큐브의 상태를 자동으로 인식하고, 최적의 큐브 해법을 출력하는 시스템입니다.  
 포인트 클라우드 복원(openMVG), 파이썬 기반 큐브 상태 분석, 그리고 두 단계 큐브 솔버 알고리즘(RubiksCube-TwophaseSolver)을 연동합니다.
 
