@@ -70,15 +70,19 @@ sudo make install
 아래 명령어를 각각의 폴더(`bottom_images/`, `top_images/`)에 대해 실행하세요.
 
 1. 이미지 리스트 생성
+
 ```openMVG_main_SfMInit_ImageListing -i bottom_images/ -o bottom_matches/```
 
 2. 특징점 추출
+
 ```openMVG_main_ComputeFeatures -i bottom_matches/sfm_data.json -o bottom_matches/```
 
 3. 매칭
+
 ```openMVG_main_ComputeMatches -i bottom_matches/sfm_data.json -o bottom_matches/```
 
 4. 3D 재구성
+
 ```openMVG_main_IncrementalSfM -i bottom_matches/sfm_data.json -m bottom_matches/ -o bottom_reconstruction/```
 
 
@@ -103,11 +107,13 @@ Cubestring: UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
 ### 4. 큐브 해법 도출
 
 #### 1) Python에서 cubestring 사용 예시
-```from twophase.solver import solve
+```
+from twophase.solver import solve
 
 cubestring = "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB" # 위에서 얻은 문자열
 solution = solve(cubestring, 19, 20)
-print(f"Solution: {solution}")```
+print(f"Solution: {solution}")
+```
 
 
 - `solution`에는 큐브를 맞추는 최적의 공식이 담깁니다.
