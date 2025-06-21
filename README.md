@@ -31,17 +31,17 @@
 #### Python 패키지
 pip install open3d scikit-learn numpy matplotlib
 
-text
+
 
 #### typing-extensions 오류 방지
 pip install --upgrade typing-extensions
 
-text
+
 
 #### 큐브 솔버 엔진
 pip install RubikTwoPhase
 
-text
+
 
 #### openMVG 설치 (포인트 클라우드 복원)
 git clone --recursive https://github.com/openMVG/openMVG.git
@@ -50,7 +50,7 @@ cmake -DCMAKE_BUILD_TYPE=RELEASE ../openMVG/src/
 make -j$(nproc)
 sudo make install
 
-text
+
 - Windows 사용자는 [공식 문서](https://openmvg.readthedocs.io/en/latest/BUILD/) 참고
 
 ---
@@ -79,7 +79,7 @@ openMVG_main_ComputeMatches -i bottom_matches/sfm_data.json -o bottom_matches/
 4. 3D 재구성
 openMVG_main_IncrementalSfM -i bottom_matches/sfm_data.json -m bottom_matches/ -o bottom_reconstruction/
 
-text
+
 
 - `top_images/`도 동일하게 진행
 - 결과로 `bottom_reconstruction/point_cloud.ply`, `top_reconstruction/point_cloud.ply` 생성
@@ -93,12 +93,10 @@ text
 #### 2) 파이썬 코드 실행
 python mecapstone.py
 
-text
 - 실행 결과로 큐브 상태 문자열(cubestring)이 출력됩니다.
 - 예시:  
 Cubestring: UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
 
-text
 
 ### 4. 큐브 해법 도출
 
@@ -115,7 +113,7 @@ text
 ---
 
 ## 🗂️ 프로젝트 폴더 구조 예시
-
+```
 project/
 ├── bottom_images/ # 큐브 하단 이미지
 ├── top_images/ # 큐브 상단 이미지
@@ -126,9 +124,7 @@ project/
 ├── mecapstone.py # 큐브 상태 분석 코드
 ├── cube_state.txt # (선택) 큐브 상태 문자열 저장 파일
 └── README.md
-
-text
-
+```
 ---
 
 ## ⚙️ 주요 원리 및 상세 설명
@@ -174,11 +170,4 @@ text
 
 ---
 
-## 👥 Contributors
 
-- 2019102077 김민규
-- 2019102080 김민종
-
----
-
-**문의/피드백**: github issue 또는 이메일로 연락 주세요.
