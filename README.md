@@ -29,26 +29,26 @@
 ### 2. 필수 패키지 설치
 
 #### Python 패키지
-pip install open3d scikit-learn numpy matplotlib
+```pip install open3d scikit-learn numpy matplotlib```
 
 
 
 #### typing-extensions 오류 방지
-pip install --upgrade typing-extensions
+```pip install --upgrade typing-extensions```
 
 
 
 #### 큐브 솔버 엔진
-pip install RubikTwoPhase
+```pip install RubikTwoPhase```
 
 
 
 #### openMVG 설치 (포인트 클라우드 복원)
-git clone --recursive https://github.com/openMVG/openMVG.git
+```git clone --recursive https://github.com/openMVG/openMVG.git
 mkdir openMVG_Build && cd openMVG_Build
 cmake -DCMAKE_BUILD_TYPE=RELEASE ../openMVG/src/
 make -j$(nproc)
-sudo make install
+sudo make install```
 
 
 - Windows 사용자는 [공식 문서](https://openmvg.readthedocs.io/en/latest/BUILD/) 참고
@@ -68,16 +68,16 @@ sudo make install
 아래 명령어를 각각의 폴더(`bottom_images/`, `top_images/`)에 대해 실행하세요.
 
 1. 이미지 리스트 생성
-openMVG_main_SfMInit_ImageListing -i bottom_images/ -o bottom_matches/
+```openMVG_main_SfMInit_ImageListing -i bottom_images/ -o bottom_matches/```
 
 2. 특징점 추출
-openMVG_main_ComputeFeatures -i bottom_matches/sfm_data.json -o bottom_matches/
+```openMVG_main_ComputeFeatures -i bottom_matches/sfm_data.json -o bottom_matches/```
 
 3. 매칭
-openMVG_main_ComputeMatches -i bottom_matches/sfm_data.json -o bottom_matches/
+```openMVG_main_ComputeMatches -i bottom_matches/sfm_data.json -o bottom_matches/```
 
 4. 3D 재구성
-openMVG_main_IncrementalSfM -i bottom_matches/sfm_data.json -m bottom_matches/ -o bottom_reconstruction/
+```openMVG_main_IncrementalSfM -i bottom_matches/sfm_data.json -m bottom_matches/ -o bottom_reconstruction/```
 
 
 
@@ -91,7 +91,7 @@ openMVG_main_IncrementalSfM -i bottom_matches/sfm_data.json -m bottom_matches/ -
 - `input_top.ply` ← `top_reconstruction/point_cloud.ply` 복사
 
 #### 2) 파이썬 코드 실행
-python mecapstone.py
+```python mecapstone.py```
 
 - 실행 결과로 큐브 상태 문자열(cubestring)이 출력됩니다.
 - 예시:  
@@ -101,13 +101,13 @@ Cubestring: UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
 ### 4. 큐브 해법 도출
 
 #### 1) Python에서 cubestring 사용 예시
-from twophase.solver import solve
+```from twophase.solver import solve
 
 cubestring = "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB" # 위에서 얻은 문자열
 solution = solve(cubestring, 19, 20)
-print(f"Solution: {solution}")
+print(f"Solution: {solution}")```
 
-text
+
 - `solution`에는 큐브를 맞추는 최적의 공식이 담깁니다.
 
 ---
