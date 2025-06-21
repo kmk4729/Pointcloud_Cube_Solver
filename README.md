@@ -44,11 +44,13 @@
 
 
 #### openMVG 설치 (포인트 클라우드 복원)
-```git clone --recursive https://github.com/openMVG/openMVG.git
+```
+git clone --recursive https://github.com/openMVG/openMVG.git
 mkdir openMVG_Build && cd openMVG_Build
 cmake -DCMAKE_BUILD_TYPE=RELEASE ../openMVG/src/
 make -j$(nproc)
-sudo make install```
+sudo make install
+```
 
 
 - Windows 사용자는 [공식 문서](https://openmvg.readthedocs.io/en/latest/BUILD/) 참고
